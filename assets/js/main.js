@@ -132,8 +132,7 @@ const PROJECTS = [
     tags: ['YouTube', 'Engineering Education', 'Spanish Content', 'Bolivia', 'Outreach'],
     imgComment: 'Casi Ingeniero YouTube',
     galleryCount: 1,
-    /* REPLACE: embed your channel trailer or a specific video URL below */
-    videoUrl: 'https://www.youtube.com/embed/videoseries?list=UCzw7nzqiQbc5VNh08WrIpDw',
+    videoUrl: 'https://www.youtube.com/embed/_7ZWYkjeq-0?autoplay=1&mute=1&start=257',
   },
 ];
 
