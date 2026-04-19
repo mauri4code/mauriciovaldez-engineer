@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mauricio Valdez Ordoñez — Mechatronics Engineer & Robotics Researcher. M.Sc. candidate at VUB Brussels. UAV research, industrial automation, soft robotics." />
+  <meta property="og:title" content="Mauricio Valdez Ordoñez · Mechatronics Engineer" />
+  <meta property="og:description" content="Portfolio of Mauricio Valdez — Mechatronics Engineer, Robotics Researcher, Industrial Automation specialist." />
+  <meta property="og:type" content="website" />
+  <title>Mauricio Valdez Ordoñez · Mechatronics Engineer</title>
+
+  <!-- Google Fonts — preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">MV</a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <!-- REPLACE: /assets/Mauricio_Valdez_CV.pdf -->
+      <a href="assets/Mauricio_Valdez_CV.pdf" class="nav-cv-btn" download aria-label="Download CV">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download CV
+      </a>
+    </div>
+
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile" id="nav-mobile" role="menu">
+  <a href="#hero" role="menuitem">Home</a>
+  <a href="#projects" role="menuitem">Projects</a>
+  <a href="#experience" role="menuitem">Experience</a>
+  <a href="#skills" role="menuitem">Skills</a>
+  <a href="#education" role="menuitem">Education</a>
+  <a href="#honors" role="menuitem">Honors</a>
+  <a href="#contact" role="menuitem">Contact</a>
+  <!-- REPLACE: /assets/Mauricio_Valdez_CV.pdf -->
+  <a href="assets/Mauricio_Valdez_CV.pdf" class="nav-cv-btn" download role="menuitem">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    Download CV
+  </a>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-gradient" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-pre" aria-label="Introduction">Mechatronics · Robotics · Automation</p>
+
+      <h1 class="hero-name">
+        <span class="gradient-text">Mauricio</span><br />
+        Valdez Ordoñez
+      </h1>
+
+      <p class="hero-subtitle">
+        Mechatronics Engineer
+        <span>·</span>
+        Robotics Researcher
+        <span>·</span>
+        Industrial Automation
+      </p>
+
+      <div class="hero-location" aria-label="Location">
+        <span aria-hidden="true">📍</span>
+        Brussels, Belgium &nbsp;
+      </div>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          See My Projects
+        </a>
+        <a href="https://linkedin.com/in/mauricio-valdez-o-engr/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span class="scroll-line"></span>
+        scroll to explore
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">// about me</span>
+      <h2 class="section-title">Engineer. Researcher.<br /><span class="gradient-text">Builder.</span></h2>
+    </div>
+
+    <div class="about-grid">
+      <!-- Photo -->
+      <div class="about-photo-wrap fade-in">
+        <div class="about-photo">
+          <img src="assets/profile.jpg" alt="Mauricio Valdez Ordoñez" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+        </div>
+        <div class="about-photo-deco"   aria-hidden="true"></div>
+        <div class="about-photo-deco-b" aria-hidden="true"></div>
+      </div>
+
+      <!-- Bio -->
+      <div class="fade-in delay-2">
+        <p class="about-bio">
+          Mechatronics engineer and robotics researcher from <strong>Bolivia</strong>, completing a
+          <strong>Master's in Electromechanical Engineering (Robotics)</strong> at
+          <strong>VUB Brussels</strong>. My thesis focuses on UAV power consumption modeling with
+          machine learning — bridging real-world flight experiments and energy-aware path planning.
+          <br /><br />
+          Recipient of the <strong>VUB Excellence Scholarship</strong> and the
+          <strong>Fondation Patiño Fellowship</strong> (1 of 8 selected from ~200 applicants).
+          With hands-on experience spanning soft robotics research, industrial SCADA systems,
+          PLC training, and RPA automation, I'm committed to bringing intelligent automation
+          to Bolivia's growing engineering ecosystem.
+        </p>
+
+        <div class="about-badges">
+          <span class="tag teal">🎓 VUB Excellence Scholar</span>
+          <span class="tag blue">🏅 Fondation Patiño Fellow</span>
+          <span class="tag">🌍 3 Languages</span>
+          <span class="tag">🤖 Robotics Researcher</span>
+          <span class="tag teal">⚡ Industrial Automation</span>
+        </div>
+
+        <div class="about-stat-row">
+          <div class="about-stat glass-card">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Countries</div>
+          </div>
+          <div class="about-stat glass-card">
+            <div class="stat-num">120+</div>
+            <div class="stat-label">Students Trained</div>
+          </div>
+          <div class="about-stat glass-card">
+            <div class="stat-num">3.58</div>
+            <div class="stat-label">B.Sc. GPA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     PROJECTS / RESEARCH
+     ============================================================ -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">// projects & research</span>
+      <h2 class="section-title">Work That <span class="gradient-text">Moves Things.</span></h2>
+      <p class="section-subtitle">From UAV labs in Brussels to factory floors in Bolivia — a selection of research and engineering projects.</p>
+    </div>
+
+    <!-- Cards are injected by main.js -->
+    <div class="projects-grid" id="projects-grid" role="list"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     EXPERIENCE TIMELINE
+     ============================================================ -->
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">// experience</span>
+      <h2 class="section-title">A Track Record<br /><span class="gradient-text">Across Continents.</span></h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="glass-card timeline-card">
+          <p class="timeline-period">2024 — Present</p>
+          <h3 class="timeline-role">M.Sc. Thesis Researcher</h3>
+          <p class="timeline-company">Brubotics, Vrije Universiteit Brussel (VUB)</p>
+          <p class="timeline-location">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Brussels, Belgium
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in delay-1">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="glass-card timeline-card">
+          <p class="timeline-period">Jun 2024 — Aug 2024</p>
+          <h3 class="timeline-role">RPA Engineer</h3>
+          <p class="timeline-company">Integraphics / Jysk Fynske Medier</p>
+          <p class="timeline-location">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bolivia / Denmark (Remote)
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in delay-2">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="glass-card timeline-card">
+          <p class="timeline-period">Jul 2023 — May 2024</p>
+          <h3 class="timeline-role">Industrial Automation Engineer</h3>
+          <p class="timeline-company">Ideas Automation</p>
+          <p class="timeline-location">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Cochabamba, Bolivia
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in delay-3">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="glass-card timeline-card">
+          <p class="timeline-period">Oct 2022 — May 2023</p>
+          <h3 class="timeline-role">Teaching Assistant (Spanish Language)</h3>
+          <p class="timeline-company">Académie d'Aix-Marseille — French Ministry of National Education</p>
+          <p class="timeline-location">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Marseille, France
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in delay-4">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="glass-card timeline-card">
+          <p class="timeline-period">Mar 2021 — Sep 2022</p>
+          <h3 class="timeline-role">Project Engineer & Automation Trainer</h3>
+          <p class="timeline-company">Ideas Automation / Ideas Capacitación</p>
+          <p class="timeline-location">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Bolivia
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     EDUCATION
+     ============================================================ -->
+<section id="education" class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">// education</span>
+      <h2 class="section-title">Foundation of <span class="gradient-text">Expertise.</span></h2>
+    </div>
+
+    <div class="education-grid">
+
+      <div class="glass-card edu-card fade-in">
+        <div class="edu-degree-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          M.Sc. Degree · In Progress
+        </div>
+        <h3 class="edu-institution">VUB — BRUFACE Joint Program</h3>
+        <p class="edu-program">M.Sc. Electromechanical Engineering — Robotics specialisation</p>
+        <p class="edu-detail">📍 Brussels, Belgium &nbsp;·&nbsp; Expected Sep 2026</p>
+        <div class="edu-highlights">
+          <div class="edu-highlight-item">Brubotics Robotics Laboratory — thesis on UAV energy modeling</div>
+          <div class="edu-highlight-item">VUB Excellence Scholarship recipient</div>
+          <div class="edu-highlight-item">Fondation Patiño Full Master's Fellowship (1 of 8 / ~200 applicants)</div>
+          <div class="edu-highlight-item">Coursework: Control Systems, Machine Learning, Embedded Systems, Soft Robotics</div>
+        </div>
+      </div>
+
+      <div class="glass-card edu-card fade-in delay-2">
+        <div class="edu-degree-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          B.Sc. Degree · Graduated
+        </div>
+        <h3 class="edu-institution">UCB San Pablo</h3>
+        <p class="edu-program">B.Sc. Mechatronics Engineering</p>
+        <p class="edu-detail">📍 Cochabamba, Bolivia &nbsp;·&nbsp; Apr 2021</p>
+        <div class="edu-highlights">
+          <div class="edu-highlight-item">Graduated 1st in cohort — Academic Excellence award</div>
+          <div class="edu-highlight-item">GPA 3.58 / 4.00</div>
+          <div class="edu-highlight-item">Thesis grade: 100 / 100</div>
+          <div class="edu-highlight-item">Focus areas: Control Systems, Embedded Systems, Industrial Automation</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SKILLS
+     ============================================================ -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">// skills & tools</span>
+      <h2 class="section-title">The Stack That<br /><span class="gradient-text">Gets It Done.</span></h2>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="glass-card skill-group fade-in">
+        <div class="skill-group-title">
+          <div class="skill-group-icon" aria-hidden="true">🤖</div>
+          Robotics & Autonomy
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">ROS / ROS 2</span>
+          <span class="skill-tag">UAV Systems</span>
+          <span class="skill-tag">Embedded Sensing</span>
+          <span class="skill-tag">Sensors & Actuators</span>
+          <span class="skill-tag">Soft Robotics</span>
+          <span class="skill-tag">Path Planning</span>
+        </div>
+      </div>
+
+      <div class="glass-card skill-group fade-in delay-1">
+        <div class="skill-group-title">
+          <div class="skill-group-icon" aria-hidden="true">⚙️</div>
+          Control & Embedded
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">C / C++</span>
+          <span class="skill-tag">FreeRTOS</span>
+          <span class="skill-tag">PLC / PAC — Structured Text</span>
+          <span class="skill-tag">Siemens S7</span>
+          <span class="skill-tag">Schneider M340</span>
+          <span class="skill-tag">PID & Motion Control</span>
+          <span class="skill-tag">Ladder Logic</span>
+        </div>
+      </div>
+
+      <div class="glass-card skill-group fade-in delay-2">
+        <div class="skill-group-title">
+          <div class="skill-group-icon" aria-hidden="true">🏭</div>
+          Industrial & Automation
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">SCADA (AVEVA)</span>
+          <span class="skill-tag">HMI Design</span>
+          <span class="skill-tag">Modbus / Profinet</span>
+          <span class="skill-tag">Fieldbus</span>
+          <span class="skill-tag">Low-Voltage Panels</span>
+          <span class="skill-tag">Power Automate (RPA)</span>
+          <span class="skill-tag">Data Acquisition</span>
+        </div>
+      </div>
+
+      <div class="glass-card skill-group fade-in delay-3">
+        <div class="skill-group-title">
+          <div class="skill-group-icon" aria-hidden="true">🧠</div>
+          ML & Data Science
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Regression Models</span>
+          <span class="skill-tag">Neural Networks</span>
+          <span class="skill-tag">Energy Modeling</span>
+          <span class="skill-tag">Pandas / NumPy</span>
+          <span class="skill-tag">Scikit-learn</span>
+        </div>
+      </div>
+
+      <div class="glass-card skill-group fade-in delay-4" style="grid-column: span 2;">
+        <div class="skill-group-title">
+          <div class="skill-group-icon" aria-hidden="true">🌍</div>
+          Languages
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag lang">Spanish — Native</span>
+          <span class="skill-tag lang">English — Professional (TOEFL iBT 84)</span>
+          <span class="skill-tag lang">French — Independent (DELF B2)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     HONORS & AWARDS
+     ============================================================ -->
+<section id="honors" class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">// honors & awards</span>
+      <h2 class="section-title">Recognition for<br /><span class="gradient-text">Excellence.</span></h2>
+    </div>
+
+    <div class="awards-list">
+
+      <div class="glass-card award-item fade-in">
+        <span class="award-year">2025 – 2026</span>
+        <span class="award-icon" aria-hidden="true">🏆</span>
+        <div class="award-content">
+          <p class="award-title">VUB Excellence Scholarship</p>
+          <p class="award-detail">Vrije Universiteit Brussel — awarded to outstanding international M.Sc. students.</p>
+        </div>
+      </div>
+
+      <div class="glass-card award-item fade-in delay-1">
+        <span class="award-year">2024 – 2026</span>
+        <span class="award-icon" aria-hidden="true">🏆</span>
+        <div class="award-content">
+          <p class="award-title">Fondation Patiño Full Master's Scholarship</p>
+          <p class="award-detail">1 of 8 recipients selected from approximately 200 applicants across Bolivia — full funding for M.Sc. studies in Europe.</p>
+        </div>
+      </div>
+
+      <div class="glass-card award-item fade-in delay-2">
+        <span class="award-year">2022</span>
+        <span class="award-icon" aria-hidden="true">🏆</span>
+        <div class="award-content">
+          <p class="award-title">Teaching Assistant Grant — French Ministry of National Education</p>
+          <p class="award-detail">Académie d'Aix-Marseille — competitive grant for Spanish language teaching assistants in French public secondary schools.</p>
+        </div>
+      </div>
+
+      <div class="glass-card award-item fade-in delay-3">
+        <span class="award-year">2021</span>
+        <span class="award-icon" aria-hidden="true">🏆</span>
+        <div class="award-content">
+          <p class="award-title">Academic Excellence — UCB San Pablo</p>
+          <p class="award-detail">Graduated 1st in cohort · Thesis score 100/100 · GPA 3.58 / 4.00</p>
+        </div>
+      </div>
+
+      <div class="glass-card award-item fade-in delay-4">
+        <span class="award-year">2013</span>
+        <span class="award-icon" aria-hidden="true">🏆</span>
+        <div class="award-content">
+          <p class="award-title">Youth Ambassadors Scholarship</p>
+          <p class="award-detail">U.S. Embassy Bolivia — competitive cultural exchange program for young leaders.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">// get in touch</span>
+      <h2 class="section-title">Let's <span class="gradient-text">Connect.</span></h2>
+    </div>
+
+    <div class="contact-wrap">
+
+      <div class="glass-card contact-info-card fade-in">
+        <h3 class="contact-title">Say Hello</h3>
+        <p class="contact-blurb">
+          Open to research collaborations, engineering roles, and conversations about robotics,
+          automation, and Bolivia's tech future. Don't hesitate to reach out.
+        </p>
+
+        <div class="contact-items">
+
+          <div class="contact-item">
+            <div class="contact-item-icon" aria-hidden="true">📧</div>
+            <div class="contact-item-content">
+              <p class="contact-item-label">Email</p>
+              <a href="mailto:engrmvaldezo@gmail.com" class="contact-item-value">engrmvaldezo@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon" aria-hidden="true">📞</div>
+            <div class="contact-item-content">
+              <p class="contact-item-label">Phone</p>
+              <a href="tel:+32460960132" class="contact-item-value">(+32) 460 96 01 32</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon" aria-hidden="true">🔗</div>
+            <div class="contact-item-content">
+              <p class="contact-item-label">LinkedIn</p>
+              <a href="https://linkedin.com/in/mauricio-valdez-o-engr/" target="_blank" rel="noopener noreferrer" class="contact-item-value">linkedin.com/in/mauricio-valdez-o-engr</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon" aria-hidden="true">📍</div>
+            <div class="contact-item-content">
+              <p class="contact-item-label">Location</p>
+              <span class="contact-item-value">Brussels, Belgium</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="glass-card contact-availability fade-in delay-2">
+        <h3 class="avail-title">Current Status</h3>
+        <div class="avail-status">
+          <div class="avail-dot" aria-hidden="true"></div>
+          <span class="avail-text">Available for Opportunities</span>
+        </div>
+        <p class="avail-detail">
+          Currently completing my M.Sc. thesis at Brubotics, VUB (expected September 2026).
+          Open to research positions, robotics engineering roles, and industrial automation
+          projects — especially those with impact in Latin America or emerging markets.
+          Returning to Bolivia in October 2026.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="mailto:engrmvaldezo@gmail.com" class="btn btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Send an Email
+          </a>
+          <a href="https://linkedin.com/in/mauricio-valdez-o-engr/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            Connect on LinkedIn
+          </a>
+          <!-- REPLACE: /assets/Mauricio_Valdez_CV.pdf -->
+          <a href="assets/Mauricio_Valdez_CV.pdf" class="btn btn-ghost" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-logo">MV</span>
+    <p class="footer-copy">© 2026 Mauricio Valdez Ordoñez · Built with vanilla HTML, CSS & JS</p>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/mauricio-valdez-o-engr/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://youtube.com/channel/UCzw7nzqiQbc5VNh08WrIpDw" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <!-- REPLACE: /assets/Mauricio_Valdez_CV.pdf -->
+      <a href="assets/Mauricio_Valdez_CV.pdf" download>CV</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MODAL (shared, populated by JS)
+     ============================================================ -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-label="Project details">
+  <div class="modal-box" id="modal-box"></div>
+</div>
+
+<!-- Main script -->
+<script src="assets/js/main.js"></script>
+</body>
+</html>
