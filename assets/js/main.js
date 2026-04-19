@@ -16,7 +16,11 @@ const PROJECTS = [
       <p>A systematic experimental campaign was designed and executed, collecting telemetry and power data across multiple flight profiles. The dataset was then used to train and compare regression models and neural network architectures capable of predicting energy consumption for arbitrary flight trajectories.</p>
       <p>The models directly support energy-aware path planning — enabling UAVs to select routes that minimize battery usage, extend mission range, and improve operational safety. A conference paper summarizing the methodology and results is currently in preparation.</p>`,
     tags: ['Energy Modeling', 'Neural Networks', 'Regression', 'Flight Experiments', 'Path Planning'],
-    imgComment: 'UAV Thesis',
+    cardImage: 'assets/projects/UAV-2.jpg',
+    gallery: [
+      { src: 'assets/projects/UAV-2.jpg', alt: 'UAV flight experiment setup' },
+      { src: 'assets/projects/UAV-3.jpg', alt: 'UAV power consumption data collection' },
+    ],
     animatedGif: {
       src: 'assets/projects/UAV-1.gif',
       caption: 'UAV flight experiment — real-world data collection for power consumption modeling',
