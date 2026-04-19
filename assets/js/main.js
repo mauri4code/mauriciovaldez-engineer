@@ -130,8 +130,12 @@ const PROJECTS = [
       <p>Content ranges from practical tutorials on PLC programming and automation tools, to career advice for engineering students, to breakdowns of emerging technologies in robotics and embedded systems. The channel reflects my conviction that knowledge-sharing and community building are essential to advancing Bolivia's technical talent base.</p>
       <p>Visit the channel at <a href="https://youtube.com/channel/UCzw7nzqiQbc5VNh08WrIpDw" target="_blank" rel="noopener noreferrer" style="color:var(--accent-blue)">youtube.com/channel/UCzw7nzqiQbc5VNh08WrIpDw</a></p>`,
     tags: ['YouTube', 'Engineering Education', 'Spanish Content', 'Bolivia', 'Outreach'],
-    imgComment: 'Casi Ingeniero YouTube',
-    galleryCount: 1,
+    cardImage: 'assets/projects/YT-1.jpg',
+    gallery: [
+      { src: 'assets/projects/YT-1.jpg', alt: 'Casi Ingeniero YouTube channel' },
+      { src: 'assets/projects/YT-2.jpg', alt: 'Casi Ingeniero YouTube content' },
+    ],
+    galleryCount: 0,
     videoUrl: 'https://www.youtube.com/embed/_7ZWYkjeq-0?autoplay=1&mute=1&start=257',
   },
 ];
