@@ -305,9 +305,14 @@ function buildModal(proj) {
   let galleryBlock = '';
   if (proj.gallery && proj.gallery.length > 0) {
     const cols = proj.gallery.length >= 6 ? 3 : 2;
-    const items = proj.gallery.map(img => `
+    const items = proj.gallery.map((img, idx) => `
       <div style="border-radius:8px;overflow:hidden;background:#0d1117;aspect-ratio:4/3;">
         <img src="${img.src}" alt="${img.alt}"
+          class="gallery-thumb"
+          data-lightbox-src="${img.src}"
+          data-lightbox-alt="${img.alt}"
+          data-lightbox-index="${idx}"
+          data-lightbox-group="${proj.id}"
           style="width:100%;height:100%;object-fit:cover;display:block;"
           loading="lazy" />
       </div>`).join('');
@@ -443,6 +448,91 @@ function renderProjectCards() {
 }
 
 /* ============================================================
+   LIGHTBOX
+   ============================================================ */
+const lightbox = (() => {
+  let images = [];   // { src, alt } array for current gallery
+  let current = 0;
+
+  const overlay  = () => document.getElementById('lightbox-overlay');
+  const img      = () => document.getElementById('lightbox-img');
+  const caption  = () => document.getElementById('lightbox-caption');
+  const counter  = () => document.getElementById('lightbox-counter');
+  const btnPrev  = () => document.getElementById('lightbox-prev');
+  const btnNext  = () => document.getElementById('lightbox-next');
+
+  function show(index) {
+    current = index;
+    const entry = images[current];
+
+    // Fade out → swap src → fade in
+    const el = img();
+    el.style.opacity = '0';
+    el.style.transform = 'scale(0.96)';
+    setTimeout(() => {
+      el.src = entry.src;
+      el.alt = entry.alt;
+      el.onload = () => {
+        el.style.opacity = '';
+        el.style.transform = '';
+      };
+      // Fallback if already cached
+      if (el.complete) { el.style.opacity = ''; el.style.transform = ''; }
+    }, 120);
+
+    caption().textContent = entry.alt || '';
+    counter().textContent = images.length > 1 ? `${current + 1} / ${images.length}` : '';
+    btnPrev().classList.toggle('hidden', current === 0);
+    btnNext().classList.toggle('hidden', current === images.length - 1);
+  }
+
+  function open(imgElements, clickedIndex) {
+    images = Array.from(imgElements).map(el => ({
+      src: el.dataset.lightboxSrc || el.src,
+      alt: el.dataset.lightboxAlt || el.alt,
+    }));
+    overlay().classList.add('open');
+    document.body.style.overflow = 'hidden';
+    show(clickedIndex);
+  }
+
+  function close() {
+    overlay().classList.remove('open');
+    document.body.style.overflow = '';
+    images = [];
+  }
+
+  function init() {
+    document.getElementById('lightbox-close').addEventListener('click', close);
+    document.getElementById('lightbox-prev').addEventListener('click', () => { if (current > 0) show(current - 1); });
+    document.getElementById('lightbox-next').addEventListener('click', () => { if (current < images.length - 1) show(current + 1); });
+
+    // Click outside image closes lightbox
+    overlay().addEventListener('click', e => { if (e.target === overlay()) close(); });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (!overlay().classList.contains('open')) return;
+      if (e.key === 'Escape')      close();
+      if (e.key === 'ArrowLeft'  && current > 0)               show(current - 1);
+      if (e.key === 'ArrowRight' && current < images.length - 1) show(current + 1);
+    });
+
+    // Delegate clicks on gallery thumbs (they're injected dynamically by modals)
+    document.addEventListener('click', e => {
+      const thumb = e.target.closest('.gallery-thumb');
+      if (!thumb) return;
+      const group = thumb.dataset.lightboxGroup;
+      const allThumbs = document.querySelectorAll(`.gallery-thumb[data-lightbox-group="${group}"]`);
+      const idx = parseInt(thumb.dataset.lightboxIndex, 10);
+      open(allThumbs, idx);
+    });
+  }
+
+  return { init };
+})();
+
+/* ============================================================
    INIT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
@@ -451,4 +541,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProjectCards();
   initModals();
   initScrollAnimations();
+  lightbox.init();
 });
