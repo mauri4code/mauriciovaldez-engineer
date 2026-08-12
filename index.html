@@ -15,6 +15,8 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Leaflet — Bolivia work-sites map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 <body>
 
@@ -298,16 +300,7 @@
 
     <div class="map-wrap fade-in">
       <div class="map-frame glass-card">
-        <iframe
-          title="Mauricio Valdez — Work sites in Bolivia"
-          src="https://www.google.com/maps/d/embed?mid=nmdd3JiPTX-ppiA5DxjNjA&ehbc=2E312F"
-          width="100%"
-          height="480"
-          style="border:0; border-radius: 10px;"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <div id="bolivia-map" style="height:480px; border-radius:10px; z-index:0;"></div>
       </div>
       <div class="map-footer fade-in delay-2">
         <span class="map-badge">
@@ -660,5 +653,94 @@
 
 <!-- Main script -->
 <script src="assets/js/main.js"></script>
+
+<!-- Leaflet + Bolivia map -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN2GqaE=" crossorigin=""></script>
+<script>
+(function () {
+  const mapEl = document.getElementById('bolivia-map');
+  if (!mapEl) return;
+
+  /* ── Dark tile layer ── */
+  const map = L.map('bolivia-map', {
+    center: [-16.9, -65.4],
+    zoom: 6,
+    scrollWheelZoom: false,
+    attributionControl: true
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  /* ── Site data (extracted from Google Maps saved list) ── */
+  const sites = [
+    { name: "Aeropuerto Internacional Viru Viru (VVI)", type: "Infraestructura", city: "Santa Cruz", lat: -17.6478, lng: -63.1406, color: "#00a8ff" },
+    { name: "Ministerio de Minería y Metalurgia",        type: "Gobierno / Minería",  city: "La Paz",     lat: -16.4993, lng: -68.1351, color: "#f39c12" },
+    { name: "Instituto Gastroenterólogico del Bicentenario", type: "Salud",           city: "La Paz",     lat: -16.5102, lng: -68.1164, color: "#e05c5c" },
+    { name: "Planta Industrializadora de Quinua",        type: "Industrial / Alimentos", city: "Oruro",  lat: -17.8314, lng: -67.0271, color: "#00d4aa" },
+    { name: "Planta de Lácteos Batallas",                type: "Industrial / Lácteos",   city: "Batallas (La Paz)", lat: -16.3007, lng: -68.5233, color: "#00d4aa" },
+    { name: "Centro de Medicina Nuclear y Radioterapia El Alto", type: "Salud",        city: "El Alto",   lat: -16.5935, lng: -68.2153, color: "#e05c5c" },
+    { name: "Planta Procesadora de Lácteos San Andrés EBA", type: "Industrial / Lácteos", city: "San Andrés (Beni)", lat: -14.9356, lng: -64.6307, color: "#00d4aa" },
+    { name: "LA PURITA PLANTA",                          type: "Industrial / Lácteos",   city: "Santa Cruz", lat: -17.3942, lng: -63.9370, color: "#00d4aa" },
+    { name: "Hospital Municipal Modelo Corea",           type: "Salud",                  city: "La Paz",   lat: -16.5459, lng: -68.2008, color: "#e05c5c" },
+    { name: "Compañía Copelme S.A.",                     type: "Industrial / Papel",     city: "Santa Cruz", lat: -17.7548, lng: -63.1460, color: "#00d4aa" },
+    { name: "Copelme (Distribución)",                    type: "Industrial / Papel",     city: "Cochabamba", lat: -17.3969, lng: -66.1049, color: "#00d4aa" },
+    { name: "Industrias Duralit S.A.",                   type: "Industrial / Construcción", city: "Cochabamba", lat: -17.3897, lng: -66.2254, color: "#00d4aa" },
+  ];
+
+  /* ── Custom circle marker factory ── */
+  function makeIcon(color) {
+    return L.divIcon({
+      className: '',
+      html: `<span style="
+        display:block; width:14px; height:14px;
+        border-radius:50%;
+        background:${color};
+        border:2px solid rgba(255,255,255,0.7);
+        box-shadow: 0 0 8px ${color}99;
+      "></span>`,
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+      popupAnchor: [0, -10]
+    });
+  }
+
+  /* ── Add markers ── */
+  sites.forEach(site => {
+    const marker = L.marker([site.lat, site.lng], { icon: makeIcon(site.color) });
+    marker.bindPopup(`
+      <div style="font-family:'Inter',sans-serif; min-width:180px;">
+        <p style="margin:0 0 4px; font-weight:700; font-size:0.85rem; color:#f0f4ff; line-height:1.3;">${site.name}</p>
+        <p style="margin:0 0 2px; font-size:0.72rem; color:${site.color}; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;">${site.type}</p>
+        <p style="margin:0; font-size:0.72rem; color:#8899aa;">📍 ${site.city}</p>
+      </div>
+    `, {
+      className: 'map-popup',
+      maxWidth: 260
+    });
+    marker.addTo(map);
+  });
+
+  /* ── Legend ── */
+  const legend = L.control({ position: 'bottomright' });
+  legend.onAdd = function () {
+    const div = L.DomUtil.create('div', 'map-legend');
+    div.innerHTML = `
+      <div style="background:rgba(10,12,20,0.85);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 14px;font-family:'Inter',sans-serif;font-size:0.72rem;color:#ccd6f6;line-height:1.8;">
+        <div style="margin-bottom:4px;font-weight:700;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:#8899aa;">Sites</div>
+        <div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#00d4aa;margin-right:6px;vertical-align:middle;box-shadow:0 0 5px #00d4aa88;"></span>Industrial</div>
+        <div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#e05c5c;margin-right:6px;vertical-align:middle;box-shadow:0 0 5px #e05c5c88;"></span>Salud</div>
+        <div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#00a8ff;margin-right:6px;vertical-align:middle;box-shadow:0 0 5px #00a8ff88;"></span>Infraestructura</div>
+        <div><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#f39c12;margin-right:6px;vertical-align:middle;box-shadow:0 0 5px #f39c1288;"></span>Gobierno</div>
+      </div>
+    `;
+    return div;
+  };
+  legend.addTo(map);
+})();
+</script>
 </body>
 </html>
