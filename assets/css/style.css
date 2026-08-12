@@ -1361,6 +1361,53 @@ footer {
   letter-spacing: 0.1em;
 }
 
+/* ============================================================
+   FIELD PRESENCE / MAP
+   ============================================================ */
+.map-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.map-frame {
+  padding: 6px;
+  overflow: hidden;
+}
+
+.map-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.map-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.map-full-btn {
+  font-size: 0.82rem;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 480px) {
+  .map-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 /* Make gallery images feel clickable */
 .gallery-thumb {
   cursor: zoom-in;
