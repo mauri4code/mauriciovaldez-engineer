@@ -670,12 +670,12 @@
   /* ── Dark tile layer ── */
   const map = L.map('bolivia-map', {
     center: [-16.9, -65.4],
-    zoom: 6,
+    zoom: 5,
     scrollWheelZoom: false,
     attributionControl: true
   });
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 19
