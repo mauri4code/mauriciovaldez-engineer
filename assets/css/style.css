@@ -899,6 +899,13 @@ ul { list-style: none; }
   gap: 5px;
 }
 
+.timeline-desc {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
 /* ============================================================
    EDUCATION
    ============================================================ */
